@@ -1,5 +1,6 @@
 import 'package:fl_components/router/app_routes.dart';
 import 'package:fl_components/screens/listview1_screen.dart';
+import 'package:fl_components/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -7,22 +8,23 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final menuOptions = AppRoutes.menuOptions;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Componentes en Flutter'),
-        elevation: 0,
-        backgroundColor: Colors.indigo,
       ),
       body: ListView.separated(
         itemBuilder: ((context, index) => ListTile(
-              title: Text(AppRoutes.menuOptions[index].name),
-              leading: Icon(AppRoutes.menuOptions[index].icon),
+              title: Text(menuOptions[index].name),
+              leading: Icon(menuOptions[index].icon, color: AppTheme.primaryColor,),
               onTap: () {
                 // final route = MaterialPageRoute(
                 //     builder: ((context) => const Listview1Screen()));
                 // Navigator.pushReplacement(context, route);
 
-                Navigator.pushNamed(context, AppRoutes.menuOptions[index].route);
+                Navigator.pushNamed(
+                    context, menuOptions[index].route);
               },
             )),
         itemCount: AppRoutes.menuOptions.length,

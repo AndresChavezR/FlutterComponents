@@ -17,8 +17,6 @@ class Listview1Screen extends StatelessWidget {
             title: const Text(
               'Listview Tipo 1',
             ),
-            elevation: 0,
-            backgroundColor: Colors.indigo,
             ),
         body: ListView.separated(
           itemBuilder: (context, index) => ListTile(
